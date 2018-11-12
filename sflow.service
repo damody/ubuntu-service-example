@@ -1,0 +1,18 @@
+[Unit]
+Description=sflow
+After=network.target
+ 
+[Service]
+WorkingDirectory=/home
+User=root
+Group=root
+Type=forking
+ExecStart=/home/giga/code/service.sflow.sh start
+ExecStop=/home/giga/code/service.sflow.sh stop
+PIDFile=/var/run/sflowtool.pid
+RestartSec=5
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,18 @@
+[Unit]
+Description=nms
+After=network.target
+ 
+[Service]
+WorkingDirectory=/home
+User=root
+Group=root
+Type=forking
+ExecStart=/home/giga/code/service.nms.sh start
+ExecStop=/home/giga/code/service.nms.sh stop
+PIDFile=/var/run/nms.pid
+RestartSec=5
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
+
